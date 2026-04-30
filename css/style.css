@@ -1,0 +1,420 @@
+/* =============================================
+   AV1 DWB - Pedro Anjos - 2º Bimestre
+   Compêndio de Hyrule
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --bg:         #0b1120;
+  --bg-card:    #111827;
+  --gold:       #f0c040;
+  --gold-dark:  #a07820;
+  --green:      #3ddc84;
+  --blue:       #60a5fa;
+  --text:       #e2e8f0;
+  --muted:      #6b7280;
+  --border:     #1f2937;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  min-height: 100vh;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+/* --- Navbar --- */
+.navbar-hyrule {
+  background: linear-gradient(180deg, #070d1a 0%, #0b1120 100%);
+  border-bottom: 2px solid var(--gold-dark);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+.navbar-brand-hyrule {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold) !important;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav-subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* --- Hero --- */
+.hero-section {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background: radial-gradient(ellipse at top, #1a2744 0%, transparent 60%);
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-shadow: 0 0 30px rgba(240,192,64,0.4);
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.hero-divider {
+  width: 160px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 20px auto 0;
+}
+
+/* --- Loading --- */
+.spinner-hyrule {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text {
+  font-family: 'Cinzel', serif;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* --- Erro --- */
+.erro-box {
+  border: 1px solid #dc2626;
+  padding: 28px 44px;
+  background: rgba(220,38,38,0.08);
+  border-radius: 4px;
+}
+
+.erro-box h3 {
+  font-family: 'Cinzel', serif;
+  color: #f87171;
+  margin-bottom: 8px;
+}
+
+.erro-box p { color: var(--muted); font-style: italic; }
+
+/* --- Contador --- */
+.resultado-count {
+  font-family: 'Cinzel', serif;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* --- Card --- */
+.card-monstro {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  animation: fadeUp 0.4s ease both;
+  color: var(--text);
+}
+
+.card-monstro:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-dark);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 0 15px rgba(240,192,64,0.08);
+  color: var(--text);
+  text-decoration: none;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-img-wrap {
+  height: 200px;
+  background: #0d1526;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-img-wrap img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  padding: 12px;
+  transition: transform 0.4s;
+}
+
+.card-monstro:hover .card-img-wrap img {
+  transform: scale(1.08);
+}
+
+.card-body-hyrule {
+  padding: 16px 18px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-id {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.card-nome {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.6;
+  opacity: 0.75;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer-hyrule {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-categoria {
+  font-size: 0.72rem;
+  background: rgba(240,192,64,0.1);
+  border: 1px solid var(--gold-dark);
+  color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.card-ver-mais {
+  font-size: 0.75rem;
+  color: var(--blue);
+  letter-spacing: 1px;
+}
+
+/* --- Footer --- */
+.footer-hyrule {
+  border-top: 1px solid var(--border);
+  padding: 28px 20px;
+  text-align: center;
+  background: #070d1a;
+}
+
+.footer-hyrule p {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.footer-brand {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-dark) !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+/* =============================================
+   PÁGINA DE DETALHES
+   ============================================= */
+
+.btn-voltar {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--gold-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.btn-voltar:hover { color: var(--gold); }
+
+.detalhe-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  animation: fadeUp 0.4s ease;
+}
+
+.detalhe-img-col {
+  background: #0d1526;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: 24px;
+  border-right: 1px solid var(--border);
+}
+
+.detalhe-img-col img {
+  max-width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+
+.detalhe-body {
+  padding: 32px;
+}
+
+.detalhe-id {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.detalhe-nome {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: capitalize;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.detalhe-categoria {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: rgba(240,192,64,0.1);
+  border: 1px solid var(--gold-dark);
+  color: var(--gold);
+  padding: 3px 12px;
+  border-radius: 20px;
+  text-transform: capitalize;
+  margin-bottom: 24px;
+}
+
+.detalhe-section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detalhe-descricao {
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
+.detalhe-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.info-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+.info-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.info-valor {
+  color: var(--text);
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.badge-drop {
+  display: inline-block;
+  background: rgba(96,165,250,0.1);
+  border: 1px solid rgba(96,165,250,0.3);
+  color: var(--blue);
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin: 3px 3px 3px 0;
+  text-transform: capitalize;
+}
+
+.badge-local {
+  display: inline-block;
+  background: rgba(61,220,132,0.1);
+  border: 1px solid rgba(61,220,132,0.3);
+  color: var(--green);
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin: 3px 3px 3px 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .detalhe-img-col { border-right: none; border-bottom: 1px solid var(--border); min-height: 220px; }
+  .detalhe-body { padding: 20px; }
+  .detalhe-info-grid { grid-template-columns: 1fr; }
+  .detalhe-nome { font-size: 1.5rem; }
+}
