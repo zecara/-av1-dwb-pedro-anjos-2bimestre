@@ -87,4 +87,4 @@ index.html abre
 
 ---
 
-*"It's dangerous to go alone!" — The Legend of Zelda*
+*"It's dangerous to go alone fessor me da 10!" — The Legend of Zelda*
