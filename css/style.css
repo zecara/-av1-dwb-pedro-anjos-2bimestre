@@ -32,9 +32,11 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Fundo SVG Animado --- */
+/* --- Fundo Canvas --- */
 #bg-parallax {
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: block;
 }
 
 #bg-overlay {
