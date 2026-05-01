@@ -45,7 +45,6 @@ body {
   background-position: center;
   transform: scale(1.1);
   will-change: transform;
-  transition: transform 0.05s linear;
 }
 
 #bg-overlay {
