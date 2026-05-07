@@ -1,6 +1,4 @@
-// =============================================
-// canvas-particles.js — Fundo com partículas interativas
-// =============================================
+
 
 (function () {
   const canvas = document.getElementById('bg-parallax');
